@@ -21,8 +21,9 @@ for your android device!
 
 #### Why? What for?
 
-Standard busybox implementation for android devices do NOT have this tool in their implementation!
+Standard busybox implementations for android devices do NOT have this tool in their implementation!
 Which is shame really because its quite a neat thing to have
+
 #### Wait what ??? what is a busybox?
 
 here you go...
@@ -39,13 +40,13 @@ Yes exactly, but not only is it interesting for IOT it can also be very handy fo
 
 #### Nice I like it.. tell me why "Native"
 
-Native simply means that the tool is running without a gui i.e graphical interface "Natively" on the system in our case we execute it from the Android Terminal emulator available from here:
+Native simply means that the tool is running without a gui i.e graphical user interface  "Natively" on the system in our case we execute it from the Android Terminal emulator available from here:
 
 But it doesn't need to be called from the Terminal Emulator you can build your own wrapper such as an APK and call the bin from there.
 
 #### Do Other applications use Mqtt?
 
-Yes .. the mostfamous one would be facebook who uses mqtt for their messenger implementation. The difference here is that Mqtt client features are embedded within the function calls deep inside the messengers app source code, whereas MqttAndroidNative can be accesed system wide on the adroid system.
+Yes .. the most famous one would be facebook who uses mqtt for their messenger implementation. The difference here is that Mqtt client features are embedded within the function calls deep inside the messengers app source code, whereas MqttAndroidNative can be accessed system wide on the adroid system.
 
 
 #### Perfect I want to try it what should I do?
@@ -58,12 +59,12 @@ Please stop reading now and hang yourself!
 
 #### I love Linux lets do it!
 
-**Dependancies**
+######Dependancies
 
 * git
 * android-ndk
 
-cd into your git development foldeer in my case its just git
+cd into your git development folder in my case its just git
 
 ```
 cd git
@@ -91,7 +92,7 @@ ls
 
 ```
 
-The out put should be something similiar to this:
+The output should be something similiar to this:
 
 ```
 captainflint@CaptainFlint:~/git/MQTTAndroidNative$ ls -la
@@ -110,13 +111,13 @@ drwxrwxr-x 3 captainflint captainflint 4096 Aug 18 12:40 src
 
 ```
 
-If you want you go ahead and check out the sources and other interesting things here for yourself
+If you want you can go ahead and check out the sources and other interesting things here for yourself
 but I will focus on the build process!
 
 In order to ensure that the build process runs without errors we will have to
 change a few things in "compile.sh"
 
-open compile.sh with you favorite text editor I am using vim.
+open compile.sh with your favorite text editor I am using vim.
 
 ```
 vim compile.sh
@@ -142,7 +143,7 @@ Search for the following lines of code!
 The current PATH set up is for my Machine you most likely
 have to change those Paths corresponding to your enviroment!
 
-Once you have changed the enviroment variable simply
+Once you have changed the enviroment variables simply
 execute compile.sh
 
 * make it executable
@@ -157,7 +158,7 @@ compile.sh take 2 arguments
 * 1. the path to your desired output location
 * 2. the path to the src file
 
-I have two files that can be compile straight away which are the standard native
+I have two files that can be compiled straight away those are the standard native
 implementations of a subscribe and/or publish mqtt client.
 You can have a look at these files in:
 
@@ -177,7 +178,7 @@ folder is output, then I simply execute
 ```
 
 Thats all really the compilation should start immediately wait until it finishes!
-the binary can be found now in output and all corresponding share objects are in
+the binary can be found now in output and all corresponding shared object files are in
 lib/ and thats all folks!
 
 
