@@ -1,6 +1,6 @@
 
 if [ "$#" -ne 2 ]; then
-    echo "[*] ****Android_MQTT   compile helper******"
+    echo "[*] ****Android_MQTT compile helper shell script******"
     echo "[*]"
     echo "[*]  Author: Benjamin Keil"
     echo "[*]  Email:  roguefendor@gmail.com"
@@ -16,20 +16,8 @@ if [ "$#" -ne 2 ]; then
 fi
 
 
-
-
-
 clear
 echo "[*] starting modified mqtt android hack first try"
-
-#ln -s libpaho-mqtt3c.so.1.0  lib/libpaho-mqtt3c.so.1
-#ln -s libpaho-mqtt3c.so.1    lib/libpaho-mqtt3c.so
-#ln -s libpaho-mqtt3cs.so.1.0 lib/libpaho-mqtt3cs.so.1
-#ln -s libpaho-mqtt3cs.so.1   lib/libpaho-mqtt3cs.so
-#ln -s libpaho-mqtt3a.so.1.0  lib/libpaho-mqtt3a.so.1
-#ln -s libpaho-mqtt3a.so.1    lib/libpaho-mqtt3a.so
-#ln -s libpaho-mqtt3as.so.1.0 lib/libpaho-mqtt3as.so.1
-#ln -s libpaho-mqtt3as.so.1   lib/libpaho-mqtt3as.so
 
 rm lib/*
 
@@ -37,10 +25,14 @@ rm lib/*
 
 #INJECT_OPENSSL_LIB="/usr/local/ssl/lib -lssl -lcrypto"
 
-NDK="/home/captainflint/Desktop/Android/android-ndk/"
 
-TOOLCHAIN="$NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc"
-PLATFORM="$NDK/platforms/android-24/arch-arm"
+#  ----> These PATHS need to be changed if NDK directory has different Path or another host has version of NDK
+
+     NDK="/home/captainflint/Desktop/Android/android-ndk/"
+     TOOLCHAIN="$NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc"
+     PLATFORM="$NDK/platforms/android-24/arch-arm"
+
+# END ------>
 
 
 sed -i "s/##MQTTCLIENT_VERSION_TAG##/1.0.3/g; s/##MQTTCLIENT_BUILD_TAG##/Wed Jun 15 09:31:51 IST 2016/g"  src/MQTTClient.c
@@ -48,7 +40,6 @@ sed -i "s/##MQTTCLIENT_VERSION_TAG##/1.0.3/g; s/##MQTTCLIENT_BUILD_TAG##/Wed Jun
 echo "[*] changed Headers!"
 $TOOLCHAIN -g -fPIC  -pie -Os -Wall -fvisibility=hidden --sysroot=$PLATFORM -o lib/libpaho-mqtt3c.so.1.0 src/MQTTPersistence.c src/Heap.c src/Socket.c src/MQTTPacket.c src/Clients.c src/MQTTClient.c src/Log.c src/MQTTPacketOut.c src/MQTTProtocolOut.c src/StackTrace.c src/MQTTPersistenceDefault.c src/utf-8.c src/Messages.c src/SocketBuffer.c src/MQTTProtocolClient.c src/LinkedList.c src/Thread.c src/Tree.c -L INJECT_OPENSSL_LIB  -shared -Wl,-init,MQTTClient_init  -Wl,-soname,libpaho-mqtt3c.so.1
 echo "[*] first compile attemtp! wait a second! --------------------------------->"
-read tmp
 ln -s libpaho-mqtt3c.so.1.0  lib/libpaho-mqtt3c.so.1
 ln -s libpaho-mqtt3c.so.1    lib/libpaho-mqtt3c.so
 
@@ -73,7 +64,7 @@ echo "[*] third compile --------------------------------->"
 ln -s libpaho-mqtt3a.so.1.0  lib/libpaho-mqtt3a.so.1
 ln -s libpaho-mqtt3a.so.1    lib/libpaho-mqtt3a.so
 
-echo "[linking third compile] --------------------------------->"
+echo "[linking third compile] -----------# ----> change me---------------------->"
 sed -i "s/##MQTTCLIENT_VERSION_TAG##/1.0.3/g; s/##MQTTCLIENT_BUILD_TAG##/Wed Jun 15 09:32:19 IST 2016/g"  src/MQTTAsync.c
 
 $TOOLCHAIN -g -fPIC -pie -I -pie -Os -Wall -fvisibility=hidden --sysroot=$PLATFORM -o lib/libpaho-mqtt3as.so.1.0 src/MQTTPersistence.c src/Heap.c src/Socket.c src/SSLSocket.c src/MQTTPacket.c src/Clients.c src/Log.c src/MQTTPacketOut.c src/MQTTProtocolOut.c src/StackTrace.c src/MQTTPersistenceDefault.c src/utf-8.c src/Messages.c src/MQTTAsync.c src/SocketBuffer.c src/MQTTProtocolClient.c src/LinkedList.c src/Thread.c src/Tree.c   -shared -Wl,--start-group  -ldl -Wl,--end-group -Wl,-init,MQTTAsync_init -Wl,-soname,libpaho-mqtt3as.so.1 -Wl,-no-whole-archive
