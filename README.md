@@ -14,49 +14,49 @@ __  __  ___ _____ _____  _              _           _     _
 
 ```
 
-## What is going on here?
+#### What is going on here?
 
 Well this repository lets you compile pahos mqtt C client
 for your android device!
 
-## Why? What for?
+#### Why? What for?
 
 Standard busybox implementation for android devices do have this tool in their implementation!
 
-## Wait what ??? what is a busybox?
+#### Wait what ??? what is a busybox?
 
 here you go...
 
-## OK I get it... so whats MQTT again?
+#### OK I get it... so whats MQTT again?
 
 Oh ok wait this is what WIKI says about MQTT
 
 "MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium."
 
-## Wow that seems pretty cool for IOT and other interesting things right?
+#### Wow that seems pretty cool for IOT and other interesting things right?
 
 Yes exactly, but not only is it interesting for IOT it can also be very handy for chat applications, home automation, news,updates or social media feeds.
 
-## Nice I like it.. tell me why "Native"
+#### Nice I like it.. tell me why "Native"
 
 Native simply means that the tool is running without a gui i.e graphical interface "Natively" on the system in our case we execute it from the Android Terminal emulator available from here:
 
 But it doesn't need to be called from the Terminal Emulator you can build your own wrapper such as an APK and call the bin from there.
 
-## Do Other applications use Mqtt?
+#### Do Other applications use Mqtt?
 
 Yes .. the mostfamous one would be facebook who uses mqtt for their messenger implementation. The difference here is that Mqtt client features are embedded within the function calls deep inside the messengers app source code, whereas MqttAndroidNative can be accesed system wide on the adroid system.
 
 
-## Perfect I want to try it what should I do?
+#### Perfect I want to try it what should I do?
 
 First you need to be on a Linux machine!
 
-## Huh? What is Linux?
+#### Huh? What is Linux?
 
 Please stop reading now and hang yourself!
 
-## I love Linux lets do it!
+#### I love Linux lets do it!
 
 **Dependancies**
 
@@ -181,7 +181,7 @@ the binary can be found now in output and all corresponding share objects are in
 lib/ and thats all folks!
 
 
-## Sorry before you finish up I compiled everything successful but how do I get these files onto my phone?
+#### Sorry before you finish up I compiled everything successful but how do I get these files onto my phone?
 
 Ah good question!
 
