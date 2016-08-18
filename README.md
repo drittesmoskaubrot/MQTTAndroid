@@ -21,8 +21,8 @@ for your android device!
 
 #### Why? What for?
 
-Standard busybox implementation for android devices do have this tool in their implementation!
-
+Standard busybox implementation for android devices do NOT have this tool in their implementation!
+Which is shame really because its quite a neat thing to have
 #### Wait what ??? what is a busybox?
 
 here you go...
